@@ -55,7 +55,7 @@ const FamiliesList = () => {
 
     const fetchFamilies = async () => {
         try {
-            const { data } = await axios.get('http://192.168.92.34:3000/api/families/myFamily', {
+            const { data } = await axios.get('https://lll.ix-web.site/api/families/myFamily', {
                 headers: {
                     Authorization: `Bearer ${localStorage.getItem('token')}`
                 }
@@ -76,7 +76,7 @@ const FamiliesList = () => {
 
         if (validPhoneNumbers.length > 0 && familyName) {
             try {
-                await axios.post('http://192.168.92.34:3000/api/families', {
+                await axios.post('https://lll.ix-web.site/api/families', {
                     name: familyName,
                     phoneNumbers: validPhoneNumbers,
                 }, {
@@ -120,7 +120,7 @@ const FamiliesList = () => {
     const checkPhoneNumber = async (index, phoneNumber) => {
         try {
             const formattedPhoneNumber = phoneNumber.replace(/\D+/g, '');
-            const response = await axios.post('http://192.168.92.34:3000/api/users/checkPhoneNumber', { phoneNumber: formattedPhoneNumber });
+            const response = await axios.post('https://lll.ix-web.site/api/users/checkPhoneNumber', { phoneNumber: formattedPhoneNumber });
             const newPhoneNumbers = [...phoneNumbers];
             newPhoneNumbers[index].valid = response.data.exists;
             setPhoneNumbers(newPhoneNumbers);

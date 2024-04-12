@@ -38,7 +38,7 @@ const ShoppingLists = () => {
 
     const fetchShoppingLists = async () => {
         try {
-            const { data } = await axios.get(`http://192.168.92.34:3000/api/shoppingLists/family/${familyId}`);
+            const { data } = await axios.get(`https://lll.ix-web.site/api/shoppingLists/family/${familyId}`);
             setShoppingLists(data);
         } catch (error) {
             message.error('Ошибка при загрузке списков покупок');
@@ -55,7 +55,7 @@ const ShoppingLists = () => {
             return;
         }
         try {
-            const { data } = await axios.post('http://192.168.92.34:3000/api/shoppingLists', { name: newListName, familyId });
+            const { data } = await axios.post('https://lll.ix-web.site/api/shoppingLists', { name: newListName, familyId });
             setShoppingLists([...shoppingLists, data]);
             setNewListName('');
             setIsModalVisible(false);

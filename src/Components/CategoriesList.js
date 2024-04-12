@@ -10,7 +10,7 @@ const CategoriesList = () => {
     useEffect(() => {
         const fetchCategories = async () => {
             try {
-                const { data } = await axios.get('http://192.168.92.34:3000/api/categories');
+                const { data } = await axios.get('https://lll.ix-web.site/api/categories');
                 setCategories(data);
             } catch (error) {
                 console.error('Ошибка при загрузке категорий:', error);

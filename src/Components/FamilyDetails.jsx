@@ -38,7 +38,7 @@ const FamilyDetails = () => {
 
     const fetchFamilyDetails = async () => {
         try {
-            const { data } = await axios.get(`http://192.168.92.34:3000/api/families/${familyId}`);
+            const { data } = await axios.get(`https://lll.ix-web.site/api/families/${familyId}`);
             setFamily(data);
         } catch (error) {
             message.error('Ошибка при загрузке деталей семьи');
@@ -47,7 +47,7 @@ const FamilyDetails = () => {
 
     const removeMember = async (phoneId) => {
         try {
-            await axios.delete(`http://192.168.92.34:3000/api/families/removeMember`, {
+            await axios.delete(`https://lll.ix-web.site/api/families/removeMember`, {
                 data: { phoneId, familyId }
             });
             fetchFamilyDetails();
@@ -74,7 +74,7 @@ const FamilyDetails = () => {
     const checkPhoneNumber = async (phoneNumber) => {
         try {
             const formattedPhoneNumber = phoneNumber.replace(/\D+/g, '');
-            const response = await axios.post('http://192.168.92.34:3000/api/users/checkPhoneNumber', { phoneNumber: formattedPhoneNumber });
+            const response = await axios.post('https://lll.ix-web.site/api/users/checkPhoneNumber', { phoneNumber: formattedPhoneNumber });
             if (!response.data.exists) {
                 message.error('Номер телефона не зарегистрирован');
             } else {

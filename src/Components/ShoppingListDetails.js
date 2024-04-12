@@ -42,7 +42,7 @@ const ShoppingListDetails = () => {
 
     const fetchShoppingListDetails = async () => {
         try {
-            const response = await axios.get(`http://192.168.92.34:3000/api/shoppingLists/${id}`);
+            const response = await axios.get(`https://lll.ix-web.site/api/shoppingLists/${id}`);
             setShoppingList({ name: response.data.name, Products: response.data.Products || [] });
         } catch (error) {
             console.error('Ошибка при загрузке деталей списка покупок');

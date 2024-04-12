@@ -14,7 +14,7 @@ const CategoriesModal = ({ shoppingListId, onAdded }) => {
 
     const fetchCategories = async () => {
         try {
-            const { data } = await axios.get('http://192.168.92.34:3000/api/categories');
+            const { data } = await axios.get('https://lll.ix-web.site/api/categories');
             setCategories(data);
         } catch (error) {
             console.error('Ошибка при загрузке категорий');
@@ -23,7 +23,7 @@ const CategoriesModal = ({ shoppingListId, onAdded }) => {
 
     const selectCategory = async (categoryId) => {
         try {
-            const { data } = await axios.get(`http://192.168.92.34:3000/api/categories/${categoryId}`);
+            const { data } = await axios.get(`https://lll.ix-web.site/api/categories/${categoryId}`);
             setProducts(data);
             setSelectedCategory(categoryId);
             setIsProductsVisible(true);
@@ -34,7 +34,7 @@ const CategoriesModal = ({ shoppingListId, onAdded }) => {
 
     const addProductToList = async (productId) => {
         try {
-            await axios.post(`http://192.168.92.34:3000/api/shoppingLists/${shoppingListId}/products/${productId}`);
+            await axios.post(`https://lll.ix-web.site/api/shoppingLists/${shoppingListId}/products/${productId}`);
             message.success('Товар добавлен в список');
             onAdded();
             setIsProductsVisible(false);

@@ -17,7 +17,7 @@ const ProductCommentsModal = ({ isVisible, onClose, productId, userId }) => {
 
     const fetchComments = async () => {
         try {
-            const response = await axios.get(`http://192.168.92.34:3000/api/comments/product/${productId}`);
+            const response = await axios.get(`https://lll.ix-web.site/api/comments/product/${productId}`);
             setComments(response.data);
         } catch (error) {
             message.error('Не удалось загрузить комментарии');
@@ -26,7 +26,7 @@ const ProductCommentsModal = ({ isVisible, onClose, productId, userId }) => {
 
     const handleAddComment = async () => {
         try {
-            await axios.post('http://192.168.92.34:3000/api/comments', {
+            await axios.post('https://lll.ix-web.site/api/comments', {
                 text: newComment,
                 productId,
             }, {
@@ -44,7 +44,7 @@ const ProductCommentsModal = ({ isVisible, onClose, productId, userId }) => {
 
     const handleDeleteComment = async (commentId) => {
         try {
-            await axios.delete(`http://192.168.92.34:3000/api/comments/${commentId}`);
+            await axios.delete(`https://lll.ix-web.site/api/comments/${commentId}`);
             fetchComments();
             message.success('Комментарий удален');
         } catch (error) {
@@ -54,7 +54,7 @@ const ProductCommentsModal = ({ isVisible, onClose, productId, userId }) => {
 
     const handleUpdateComment = async (commentId) => {
         try {
-            await axios.put(`http://192.168.92.34:3000/api/comments/${commentId}`, { text: editingText });
+            await axios.put(`https://lll.ix-web.site/api/comments/${commentId}`, { text: editingText });
             setEditingCommentId(null);
             setEditingText('');
             fetchComments();

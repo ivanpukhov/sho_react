@@ -16,7 +16,7 @@ const Login = () => {
         const cleanedPhoneNumber = values.phoneNumber.replace(/\D+/g, '');
 
         try {
-            const response = await axios.post('http://192.168.92.34:3000/api/users/login', {
+            const response = await axios.post('https://lll.ix-web.site/api/users/login', {
                 ...values,
                 phoneNumber: cleanedPhoneNumber,
             });
